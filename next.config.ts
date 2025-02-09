@@ -1,13 +1,7 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   output: 'export',
-  distDir: 'dist',
   images: {
-    unoptimized: true,
+    unoptimized: true
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/your-repo-name' : '',
-  basePath: process.env.NODE_ENV === 'production' ? '/your-repo-name' : '',
-
+  basePath: '/myportfolio',
 };
-
-export default nextConfig;
