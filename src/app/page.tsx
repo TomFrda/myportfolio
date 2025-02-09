@@ -10,7 +10,7 @@ const projects = [
     description: "A full-stack application with web and mobile interfaces featuring a JavaScript backend",
     tags: ["React", "TypeScript", "Tailwind CSS", "Flutter", "Node.js"],
     github: "https://github.com/TomFrda/MAYA/",
-    image: "/projects/maya.png"
+    image: "myportfolio/projects/maya.png"
   },
 ];
 
@@ -22,7 +22,7 @@ export default function Home() {
         <div className="flex flex-col items-center text-center gap-8">
           <div className="relative h-32 w-32">
             <Image
-              src="/profile.jpg"
+              src="/myportfolio/profile.jpg"
               alt="Profile"
               fill
               className="rounded-full object-cover"
