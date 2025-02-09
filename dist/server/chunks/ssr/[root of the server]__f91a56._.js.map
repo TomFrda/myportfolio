@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 31, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/tomfr/Documents/GitHub/myportfolio/src/components/language-switcher.tsx"],"sourcesContent":["'use client'\r\nimport { useLocale } from 'next-intl'\r\nimport { useRouter } from 'next/navigation'\r\n\r\nexport default function LanguageSwitcher() {\r\n  const locale = useLocale()\r\n  const router = useRouter()\r\n\r\n  const toggleLocale = () => {\r\n    const newLocale = locale === 'en' ? 'fr' : 'en'\r\n    router.push(`/${newLocale}`)\r\n  }\r\n\r\n  return (\r\n    <button\r\n      onClick={toggleLocale}\r\n      className=\"px-3 py-1 rounded border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 transition-colors\"\r\n    >\r\n      {locale === 'en' ? 'FR' : 'EN'}\r\n    </button>\r\n  )\r\n}"],"names":[],"mappings":";;;;AAEA;AADA;AADA;;;;AAIe,SAAS;IACtB,MAAM,SAAS,CAAA,GAAA,gKAAA,CAAA,YAAS,AAAD;IACvB,MAAM,SAAS,CAAA,GAAA,kIAAA,CAAA,YAAS,AAAD;IAEvB,MAAM,eAAe;QACnB,MAAM,YAAY,WAAW,OAAO,OAAO;QAC3C,OAAO,IAAI,CAAC,CAAC,CAAC,EAAE,WAAW;IAC7B;IAEA,qBACE,8OAAC;QACC,SAAS;QACT,WAAU;kBAET,WAAW,OAAO,OAAO;;;;;;AAGhC"}},
+    {"offset": {"line": 58, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}
