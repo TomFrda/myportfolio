@@ -4,9 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  // Make sure this matches your GitHub repository name
   basePath: '/myportfolio',
-  // Add this to ensure proper asset loading
   assetPrefix: '/myportfolio',
 }
 
