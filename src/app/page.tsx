@@ -10,7 +10,14 @@ const projects = [
     description: "A full-stack application with web and mobile interfaces featuring a JavaScript backend",
     tags: ["React", "TypeScript", "Tailwind CSS", "Flutter", "Node.js"],
     github: "https://github.com/TomFrda/MAYA/",
-    image: "myportfolio/projects/maya.png"
+    image: "/myportfolio/projects/maya.png"
+  },
+  {
+    title: "AI Soirée",
+    description: "A surreal party simulator using GPT-4 and local AI to recreate absurd 3 AM student conversations",
+    tags: ["Python", "OpenAI API", "GPT-4", "CLI"],
+    github: "https://github.com/TomFrda/IASoiree/",
+    image: "/myportfolio/projects/aisoiree.png"
   },
 ];
 
