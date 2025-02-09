@@ -48,7 +48,7 @@ export default function Home() {
           <h2 className="text-2xl font-bold mb-8">About Me</h2>
           <div className="prose dark:prose-invert mx-auto">
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              Hi, I'm Tom! I'm a passionate Full Stack Developer with expertise in web development, 
+              Hi, I&apos;m Tom! I&apos;m a passionate Full Stack Developer with expertise in web development, 
               system programming, and software architecture. With a strong foundation in Python 
               and C/C++, I enjoy building robust applications that solve real-world problems.
             </p>
