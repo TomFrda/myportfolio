@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  distDir: 'dist',
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
-  basePath: '/myportfolio',
-  assetPrefix: '/myportfolio',
-}
+};
 
-module.exports = nextConfig
+export default nextConfig;
