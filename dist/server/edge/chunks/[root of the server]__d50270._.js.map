@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 23, "column": 0}, "map": {"version":3,"sources":["turbopack://[project]/src/middleware.ts"],"sourcesContent":["import createMiddleware from 'next-intl/middleware';\r\nimport { NextResponse } from 'next/server';\r\n \r\nexport default createMiddleware({\r\n  // List of available locales\r\n  locales: ['en', 'fr'],\r\n  // Used when no locale matches\r\n  defaultLocale: 'en',\r\n  // If the locale is in a different position, update this\r\n  localePrefix: 'always'\r\n});\r\n \r\nexport const config = {\r\n  // Match only internationalized pathnames\r\n  matcher: ['/', '/(fr|en)/:path*']\r\n};"],"names":[],"mappings":";;;;AAAA;;uCAGe,CAAA,GAAA,kJAAA,CAAA,UAAgB,AAAD,EAAE;IAC9B,4BAA4B;IAC5B,SAAS;QAAC;QAAM;KAAK;IACrB,8BAA8B;IAC9B,eAAe;IACf,wDAAwD;IACxD,cAAc;AAChB;AAEO,MAAM,SAAS;IACpB,yCAAyC;IACzC,SAAS;QAAC;QAAK;KAAkB;AACnC"}},
-    {"offset": {"line": 47, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}

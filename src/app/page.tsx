@@ -1,9 +1,10 @@
-import Image from 'next/image'
-import { GitHubIcon, LinkedInIcon, EmailIcon } from '@/components/icons'
-import ProjectCard from '@/components/project-card'
+import { EmailIcon } from '../components/icons/email-icon'
+import { LinkedInIcon } from '../components/icons/linkedin-icon'
+import { GitHubIcon } from '../components/icons/github-icon'
+import FadeIn from '@/components/fade-in'
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
-import FadeIn from '@/components/fade-in'
+import Image from 'next/image'
 
 const projects = [
   {
@@ -27,8 +28,9 @@ export default function Home() {
     <>
       <Navbar />
       <main className="flex min-h-screen flex-col items-center p-6 sm:p-8 lg:p-20 mt-16">
-        <FadeIn direction="up" delay={0}>
-          <div className="flex flex-col items-center text-center space-y-8 max-w-3xl">
+        {/* Hero Section */}
+        <FadeIn>
+          <div className="flex flex-col items-center text-center gap-6 w-full max-w-3xl mx-auto">
             <div className="relative h-28 w-28 sm:h-32 sm:w-32 group">
               <Image
                 src="/myportfolio/profile.jpg"
@@ -51,7 +53,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <GitHubIcon />
+                <GitHubIcon size={20} />
                 <span>Follow on GitHub</span>
               </a>
               <a 
@@ -64,8 +66,9 @@ export default function Home() {
           </div>
         </FadeIn>
 
-        <FadeIn direction="left" delay={200}>
-          <section id="about" className="mt-24 sm:mt-32">
+        {/* About Section */}
+        <FadeIn>
+          <section id="about" className="mt-20 sm:mt-32 w-full max-w-4xl">
             <h2 className="text-3xl font-bold mb-12 text-center gradient-text">About Me</h2>
             <div className="prose dark:prose-invert mx-auto">
               <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed text-center mb-12">
@@ -77,22 +80,19 @@ export default function Home() {
                 <div className="glass-card p-6 rounded-xl card-hover h-full">
                   <h3 className="text-xl font-semibold mb-4 gradient-text">Skills</h3>
                   <ul className="space-y-3 text-gray-600 dark:text-gray-400">
-                    <li>Web Development (Next.js, React)</li>
-                    <li>Python Development</li>
-                    <li>C/C++ Programming</li>
-                    <li>System Architecture</li>
-                    <li>Database Design</li>
+                    <li>• C/C++ Programming</li>
+                    <li>• Python Development</li>
+                    <li>• Web Development</li>
+                    <li>• Git Version Control</li>
                   </ul>
                 </div>
                 
                 <div className="glass-card p-6 rounded-xl card-hover h-full">
                   <h3 className="text-xl font-semibold mb-4 gradient-text">Experience</h3>
                   <ul className="space-y-3 text-gray-600 dark:text-gray-400">
-                    <li>Full Stack Development</li>
-                    <li>Backend Architecture</li>
-                    <li>API Development</li>
-                    <li>Performance Optimization</li>
-                    <li>System Integration</li>
+                    <li>• Epitech Student</li>
+                    <li>• Personal Projects</li>
+                    <li>• Team Collaboration</li>
                   </ul>
                 </div>
               </div>
@@ -100,19 +100,40 @@ export default function Home() {
           </section>
         </FadeIn>
 
-        <FadeIn direction="up" delay={400}>
-          <section id="projects" className="mt-24 sm:mt-32">
+        {/* Projects Section */}
+        <FadeIn>
+          <section id="projects" className="mt-20 sm:mt-32 w-full">
             <h2 className="text-3xl font-bold mb-12 text-center gradient-text">Featured Projects</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {projects.map((project, i) => (
-                <ProjectCard key={i} {...project} />
+                <div key={i} className="glass-card p-6 rounded-xl card-hover">
+                  <h3 className="text-xl font-semibold mb-4">{project.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag, j) => (
+                      <span key={j} className="px-2 py-1 text-sm rounded-full bg-gray-100 dark:bg-gray-800">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <a 
+                    href={project.github}
+                    className="flex items-center gap-2 text-sm hover:text-blue-500"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <GitHubIcon size={16} />
+                    View on GitHub
+                  </a>
+                </div>
               ))}
             </div>
           </section>
         </FadeIn>
 
-        <FadeIn direction="right" delay={600}>
-          <section id="contact" className="mt-24 sm:mt-32 mb-16">
+        {/* Contact Section */}
+        <FadeIn>
+          <section id="contact" className="mt-20 sm:mt-32 w-full max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl font-bold mb-12 text-center gradient-text">Contact Me</h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -131,9 +152,9 @@ export default function Home() {
 
               <a
                 href="https://linkedin.com/in/tom-freida"
+                className="glass-card flex items-center gap-4 p-6 rounded-xl card-hover group"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card flex items-center gap-4 p-6 rounded-xl card-hover group"
               >
                 <div className="p-3 rounded-full bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
                   <LinkedInIcon size={24} className="text-blue-500" />
@@ -143,134 +164,6 @@ export default function Home() {
                   <p className="text-sm text-gray-600 dark:text-gray-400">Connect with me</p>
                 </div>
               </a>
-
-              <a
-                href="https://github.com/tomfrda"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-card flex items-center gap-4 p-6 rounded-xl card-hover group"
-              >
-                <div className="p-3 rounded-full bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
-                  <GitHubIcon size={24} className="text-blue-500" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">GitHub</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Check my repositories</p>
-                </div>
-              </a>
-            </div>
-          </section>
-        </FadeIn>
-
-        <FadeIn direction="up" delay={200}>
-          <section id="education" className="mt-24 sm:mt-32 w-full max-w-4xl">
-            <h2 className="text-3xl font-bold mb-12 text-center gradient-text">Mon Parcours Epitech</h2>
-            <div className="grid grid-cols-1 gap-8">
-              <div className="glass-card p-6 rounded-xl card-hover">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 rounded-full bg-blue-500/10">
-                    <span className="text-xl font-bold gradient-text">Tek1</span>
-                  </div>
-                  <h3 className="text-xl font-semibold">Première Année</h3>
-                </div>
-                <ul className="space-y-3 text-gray-600 dark:text-gray-400">
-                  <li>• Introduction à la programmation en C</li>
-                  <li>• Projets fondamentaux : my_printf, my_sokoban, BSQ</li>
-                  <li>• Travail en équipe et méthodologie Epitech</li>
-                  <li>• Shell Programming et Unix System</li>
-                </ul>
-              </div>
-
-              <div className="glass-card p-6 rounded-xl card-hover">
-                <h3 className="text-xl font-semibold mb-4 gradient-text">Projets Majeurs</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <h4 className="font-medium">My_RPG</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Jeu RPG développé en CSFML avec gestion de combat, inventaire et quêtes
-                    </p>
-                  </div>
-                  <div className="space-y-2">
-                    <h4 className="font-medium">42sh</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Shell UNIX complet avec parsing avancé et gestion des processus
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </FadeIn>
-
-        <FadeIn direction="left" delay={400}>
-          <section id="skills" className="mt-24 sm:mt-32 w-full max-w-4xl">
-            <h2 className="text-3xl font-bold mb-12 text-center gradient-text">Compétences Techniques</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <div className="glass-card p-6 rounded-xl card-hover">
-                <h3 className="text-xl font-semibold mb-6 gradient-text">Langages</h3>
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span>C</span>
-                      <span>90%</span>
-                    </div>
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700">
-                      <div className="h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" style={{width: '90%'}}></div>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span>Python</span>
-                      <span>75%</span>
-                    </div>
-                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700">
-                      <div className="h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" style={{width: '75%'}}></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="glass-card p-6 rounded-xl card-hover">
-                <h3 className="text-xl font-semibold mb-6 gradient-text">Outils & Technologies</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-                    Git
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-                    Linux/Unix
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-                    VSCode
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-                    Docker
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </FadeIn>
-
-        <FadeIn direction="right" delay={600}>
-          <section id="hub" className="mt-24 sm:mt-32 w-full max-w-4xl">
-            <h2 className="text-3xl font-bold mb-12 text-center gradient-text">Hub Innovation</h2>
-            <div className="glass-card p-6 rounded-xl card-hover">
-              <p className="text-gray-600 dark:text-gray-400 mb-6">
-                Participation active au Hub Innovation d&apos;Epitech, développant des projets innovants 
-                et collaborant avec d&apos;autres étudiants passionnés.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <h4 className="font-medium">Projet Innovation 1</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Description de votre projet innovant
-                  </p>
-                </div>
-              </div>
             </div>
           </section>
         </FadeIn>

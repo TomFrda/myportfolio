@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { GitHubIcon } from '@/components/icons'
+import { GitHubIcon } from './icons/github-icon'
 
 interface ProjectCardProps {
   title: string
