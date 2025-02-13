@@ -11,13 +11,13 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ title, description, tags, github, image }: ProjectCardProps) {
   return (
-    <div className="flex flex-col gap-4 p-4 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 transition-colors">
-      <div className="relative aspect-video">
+    <div className="glass-card hover-lift flex flex-col gap-4 p-4 rounded-lg transition-all duration-300">
+      <div className="relative aspect-video overflow-hidden rounded-lg">
         <Image
           src={image}
           alt={title}
           fill
-          className="object-cover rounded"
+          className="object-cover transition-transform duration-300 hover:scale-105"
         />
       </div>
       
@@ -26,14 +26,19 @@ export default function ProjectCard({ title, description, tags, github, image }:
       
       <div className="flex flex-wrap gap-2">
         {tags.map((tag) => (
-          <span key={tag} className="px-2 py-1 text-sm rounded bg-gray-100 dark:bg-gray-800">
+          <span 
+            key={tag} 
+            className="px-2 py-1 text-sm rounded-full bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm"
+          >
             {tag}
           </span>
         ))}
       </div>
       
-      <a href={github} 
-         className="flex items-center gap-2 mt-auto text-sm hover:underline hover:underline-offset-4">
+      <a 
+        href={github} 
+        className="flex items-center gap-2 mt-auto text-sm hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+      >
         <GitHubIcon size={16} />
         View on GitHub
       </a>
