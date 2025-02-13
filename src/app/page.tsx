@@ -260,8 +260,8 @@ export default function Home() {
             <h2 className="text-3xl font-bold mb-12 text-center gradient-text">Hub Innovation</h2>
             <div className="glass-card p-6 rounded-xl card-hover">
               <p className="text-gray-600 dark:text-gray-400 mb-6">
-                Participation active au Hub Innovation d'Epitech, développant des projets innovants 
-                et collaborant avec d'autres étudiants passionnés.
+                Participation active au Hub Innovation d&apos;Epitech, développant des projets innovants 
+                et collaborant avec d&apos;autres étudiants passionnés.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
