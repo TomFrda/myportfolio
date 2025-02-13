@@ -13,9 +13,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 'use client';
 ;
 ;
-function FadeIn({ children, className = '' }) {
+function FadeIn({ children, className = '', delay = 0, direction = 'up' }) {
     const ref = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const currentRef = ref.current // Copie de la référence
+        ;
         const observer = new IntersectionObserver((entries)=>{
             entries.forEach((entry)=>{
                 if (entry.isIntersecting) {
@@ -23,24 +25,42 @@ function FadeIn({ children, className = '' }) {
                 }
             });
         }, {
-            threshold: 0.1
+            threshold: 0.1,
+            rootMargin: '50px'
         });
-        if (ref.current) {
-            observer.observe(ref.current);
+        if (currentRef) {
+            observer.observe(currentRef);
         }
         return ()=>{
-            if (ref.current) {
-                observer.unobserve(ref.current);
+            if (currentRef) {
+                observer.unobserve(currentRef);
             }
         };
     }, []);
+    const getDirectionClass = ()=>{
+        switch(direction){
+            case 'up':
+                return 'translate-y-10';
+            case 'down':
+                return '-translate-y-10';
+            case 'left':
+                return 'translate-x-10';
+            case 'right':
+                return '-translate-x-10';
+            default:
+                return 'translate-y-10';
+        }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         ref: ref,
-        className: `opacity-0 translate-y-10 transition-all duration-700 ${className}`,
+        className: `opacity-0 ${getDirectionClass()} transition-all duration-1000 ease-out ${className}`,
+        style: {
+            transitionDelay: `${delay}ms`
+        },
         children: children
     }, void 0, false, {
         fileName: "[project]/src/components/fade-in.tsx",
-        lineNumber: 32,
+        lineNumber: 59,
         columnNumber: 5
     }, this);
 }

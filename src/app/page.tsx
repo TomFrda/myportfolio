@@ -27,42 +27,44 @@ export default function Home() {
     <>
       <Navbar />
       <main className="flex min-h-screen flex-col items-center p-6 sm:p-8 lg:p-20 mt-16">
-        <div className="flex flex-col items-center text-center space-y-8 max-w-3xl">
-          <div className="relative h-28 w-28 sm:h-32 sm:w-32 group">
-            <Image
-              src="/myportfolio/profile.jpg"
-              alt="Profile"
-              fill
-              className="rounded-full object-cover transition-transform duration-300 group-hover:scale-105"
-              priority
-            />
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+        <FadeIn direction="up" delay={0}>
+          <div className="flex flex-col items-center text-center space-y-8 max-w-3xl">
+            <div className="relative h-28 w-28 sm:h-32 sm:w-32 group">
+              <Image
+                src="/myportfolio/profile.jpg"
+                alt="Profile"
+                fill
+                className="rounded-full object-cover transition-transform duration-300 group-hover:scale-105"
+                priority
+              />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-bold gradient-text">Tom Freida</h1>
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl">
+              Full Stack Developer | Python | C/C++ | Web Development
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              <a 
+                href="https://github.com/tomfrda" 
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-foreground text-background hover:scale-105 transition-all duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GitHubIcon />
+                <span>Follow on GitHub</span>
+              </a>
+              <a 
+                href="#contact" 
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-foreground hover:bg-foreground hover:text-background transition-all duration-300"
+              >
+                Contact Me
+              </a>
+            </div>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold gradient-text">Tom Freida</h1>
-          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl">
-            Full Stack Developer | Python | C/C++ | Web Development
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <a 
-              href="https://github.com/tomfrda" 
-              className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-foreground text-background hover:scale-105 transition-all duration-300"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GitHubIcon />
-              <span>Follow on GitHub</span>
-            </a>
-            <a 
-              href="#contact" 
-              className="flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-foreground hover:bg-foreground hover:text-background transition-all duration-300"
-            >
-              Contact Me
-            </a>
-          </div>
-        </div>
+        </FadeIn>
 
-        <FadeIn className="w-full max-w-4xl">
+        <FadeIn direction="left" delay={200}>
           <section id="about" className="mt-24 sm:mt-32">
             <h2 className="text-3xl font-bold mb-12 text-center gradient-text">About Me</h2>
             <div className="prose dark:prose-invert mx-auto">
@@ -98,7 +100,7 @@ export default function Home() {
           </section>
         </FadeIn>
 
-        <FadeIn className="w-full">
+        <FadeIn direction="up" delay={400}>
           <section id="projects" className="mt-24 sm:mt-32">
             <h2 className="text-3xl font-bold mb-12 text-center gradient-text">Featured Projects</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -109,7 +111,7 @@ export default function Home() {
           </section>
         </FadeIn>
 
-        <FadeIn className="w-full max-w-2xl">
+        <FadeIn direction="right" delay={600}>
           <section id="contact" className="mt-24 sm:mt-32 mb-16">
             <h2 className="text-3xl font-bold mb-12 text-center gradient-text">Contact Me</h2>
             
@@ -156,6 +158,119 @@ export default function Home() {
                   <p className="text-sm text-gray-600 dark:text-gray-400">Check my repositories</p>
                 </div>
               </a>
+            </div>
+          </section>
+        </FadeIn>
+
+        <FadeIn direction="up" delay={200}>
+          <section id="education" className="mt-24 sm:mt-32 w-full max-w-4xl">
+            <h2 className="text-3xl font-bold mb-12 text-center gradient-text">Mon Parcours Epitech</h2>
+            <div className="grid grid-cols-1 gap-8">
+              <div className="glass-card p-6 rounded-xl card-hover">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="p-3 rounded-full bg-blue-500/10">
+                    <span className="text-xl font-bold gradient-text">Tek1</span>
+                  </div>
+                  <h3 className="text-xl font-semibold">Première Année</h3>
+                </div>
+                <ul className="space-y-3 text-gray-600 dark:text-gray-400">
+                  <li>• Introduction à la programmation en C</li>
+                  <li>• Projets fondamentaux : my_printf, my_sokoban, BSQ</li>
+                  <li>• Travail en équipe et méthodologie Epitech</li>
+                  <li>• Shell Programming et Unix System</li>
+                </ul>
+              </div>
+
+              <div className="glass-card p-6 rounded-xl card-hover">
+                <h3 className="text-xl font-semibold mb-4 gradient-text">Projets Majeurs</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <h4 className="font-medium">My_RPG</h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      Jeu RPG développé en CSFML avec gestion de combat, inventaire et quêtes
+                    </p>
+                  </div>
+                  <div className="space-y-2">
+                    <h4 className="font-medium">42sh</h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      Shell UNIX complet avec parsing avancé et gestion des processus
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </FadeIn>
+
+        <FadeIn direction="left" delay={400}>
+          <section id="skills" className="mt-24 sm:mt-32 w-full max-w-4xl">
+            <h2 className="text-3xl font-bold mb-12 text-center gradient-text">Compétences Techniques</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div className="glass-card p-6 rounded-xl card-hover">
+                <h3 className="text-xl font-semibold mb-6 gradient-text">Langages</h3>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span>C</span>
+                      <span>90%</span>
+                    </div>
+                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700">
+                      <div className="h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" style={{width: '90%'}}></div>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span>Python</span>
+                      <span>75%</span>
+                    </div>
+                    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700">
+                      <div className="h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" style={{width: '75%'}}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="glass-card p-6 rounded-xl card-hover">
+                <h3 className="text-xl font-semibold mb-6 gradient-text">Outils & Technologies</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                    Git
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                    Linux/Unix
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                    VSCode
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                    Docker
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </FadeIn>
+
+        <FadeIn direction="right" delay={600}>
+          <section id="hub" className="mt-24 sm:mt-32 w-full max-w-4xl">
+            <h2 className="text-3xl font-bold mb-12 text-center gradient-text">Hub Innovation</h2>
+            <div className="glass-card p-6 rounded-xl card-hover">
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
+                Participation active au Hub Innovation d'Epitech, développant des projets innovants 
+                et collaborant avec d'autres étudiants passionnés.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <h4 className="font-medium">Projet Innovation 1</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Description de votre projet innovant
+                  </p>
+                </div>
+              </div>
             </div>
           </section>
         </FadeIn>

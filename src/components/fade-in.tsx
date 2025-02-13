@@ -2,10 +2,24 @@
 
 import { useEffect, useRef } from 'react'
 
-export default function FadeIn({ children, className = '' }) {
+interface FadeInProps {
+  children: React.ReactNode
+  className?: string
+  delay?: number
+  direction?: 'up' | 'down' | 'left' | 'right'
+}
+
+export default function FadeIn({ 
+  children, 
+  className = '',
+  delay = 0,
+  direction = 'up'
+}: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    const currentRef = ref.current // Copie de la référence
+    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -14,22 +28,39 @@ export default function FadeIn({ children, className = '' }) {
           }
         })
       },
-      { threshold: 0.1 }
+      { 
+        threshold: 0.1,
+        rootMargin: '50px'
+      }
     )
 
-    if (ref.current) {
-      observer.observe(ref.current)
+    if (currentRef) {
+      observer.observe(currentRef)
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current)
+      if (currentRef) {
+        observer.unobserve(currentRef)
       }
     }
   }, [])
 
+  const getDirectionClass = () => {
+    switch (direction) {
+      case 'up': return 'translate-y-10'
+      case 'down': return '-translate-y-10'
+      case 'left': return 'translate-x-10'
+      case 'right': return '-translate-x-10'
+      default: return 'translate-y-10'
+    }
+  }
+
   return (
-    <div ref={ref} className={`opacity-0 translate-y-10 transition-all duration-700 ${className}`}>
+    <div 
+      ref={ref} 
+      className={`opacity-0 ${getDirectionClass()} transition-all duration-1000 ease-out ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       {children}
     </div>
   )

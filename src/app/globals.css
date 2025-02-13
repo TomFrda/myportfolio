@@ -83,7 +83,7 @@ body {
 /* Styles pour l'animation FadeIn */
 .fade-in-visible {
   opacity: 1 !important;
-  transform: translateY(0) !important;
+  transform: translate(0) !important;
 }
 
 /* Ajustement de l'état initial */
@@ -93,4 +93,20 @@ body {
 
 .translate-y-10 {
   transform: translateY(40px);
+}
+
+/* Animations améliorées */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Animation plus douce */
+.transition-all {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Effet de flottement pour les cartes */
+.card-hover:hover {
+  animation: float 2s ease-in-out infinite;
 }
