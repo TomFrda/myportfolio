@@ -49,6 +49,13 @@ body {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .dark .glass-card {
@@ -109,4 +116,66 @@ body {
 /* Effet de flottement pour les cartes */
 .card-hover:hover {
   animation: float 2s ease-in-out infinite;
+}
+
+/* Styles de la barre de défilement */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #2563eb, #7c3aed);
+}
+
+/* Pour Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 rgba(0, 0, 0, 0.1);
+}
+
+.title-gradient {
+  /* Pour le titre principal (h1) */
+  font-size: clamp(2rem, 1.2rem + 3vw, 4rem);
+  font-weight: 600;
+  line-height: clamp(2.2rem, 1.3rem + 3vw, 4.2rem);
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+/* Style spécifique pour les sous-titres (h2) */
+h2.title-gradient {
+  font-size: clamp(1.8rem, 1rem + 2vw, 3rem);
+  line-height: clamp(2rem, 1.1rem + 2vw, 3.2rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  .title-gradient {
+    background: linear-gradient(to bottom, 
+      #F5F5F5 0%,
+      #F5F5F5 15%,
+      #9CA3AF 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
+/* Ajoutez ces styles à la fin du fichier */
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
 }

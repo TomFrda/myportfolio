@@ -4,6 +4,7 @@ import { GitHubIcon } from '../components/icons/github-icon'
 import FadeIn from '@/components/fade-in'
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
+import Stars from '@/components/stars'
 import Image from 'next/image'
 
 const projects = [
@@ -26,6 +27,7 @@ const projects = [
 export default function Home() {
   return (
     <>
+      <Stars />
       <Navbar />
       <main className="flex min-h-screen flex-col items-center p-6 sm:p-8 lg:p-20 mt-16">
         {/* Hero Section */}
@@ -39,9 +41,9 @@ export default function Home() {
                 className="rounded-full object-cover transition-transform duration-300 group-hover:scale-105"
                 priority
               />
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-all duration-300" />
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold gradient-text">Tom Freida</h1>
+            <h1 className="title-gradient">Tom Freida</h1>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl">
               Full Stack Developer | Python | C/C++ | Web Development
             </p>
@@ -69,7 +71,7 @@ export default function Home() {
         {/* About Section */}
         <FadeIn>
           <section id="about" className="mt-20 sm:mt-32 w-full max-w-4xl">
-            <h2 className="text-3xl font-bold mb-12 text-center gradient-text">About Me</h2>
+            <h2 className="title-gradient mb-12 text-center">About Me</h2>
             <div className="prose dark:prose-invert mx-auto">
               <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed text-center mb-12">
                 Hi, I&apos;m Tom! I&apos;m a passionate Full Stack Developer with expertise in web development, 
@@ -103,10 +105,10 @@ export default function Home() {
         {/* Projects Section */}
         <FadeIn>
           <section id="projects" className="mt-20 sm:mt-32 w-full">
-            <h2 className="text-3xl font-bold mb-12 text-center gradient-text">Featured Projects</h2>
+            <h2 className="title-gradient mb-12 text-center">Featured Projects</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {projects.map((project, i) => (
-                <div key={i} className="glass-card p-6 rounded-xl card-hover">
+                <div key={i} className="glass-card p-6 rounded-xl hover-glow">
                   <h3 className="text-xl font-semibold mb-4">{project.title}</h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -134,7 +136,7 @@ export default function Home() {
         {/* Contact Section */}
         <FadeIn>
           <section id="contact" className="mt-20 sm:mt-32 w-full max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-12 text-center gradient-text">Contact Me</h2>
+            <h2 className="title-gradient mb-12 text-center">Contact Me</h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <a
