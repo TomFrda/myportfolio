@@ -45,7 +45,7 @@ export default function Home() {
             </div>
             <h1 className="title-gradient">Tom Freida</h1>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl">
-              Full Stack Developer | Python | C/C++ | Web Development
+              Full Stack Developer | React & Next.js | PHP & Symfony | Python | C/C++ | JavaScript
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
@@ -74,25 +74,41 @@ export default function Home() {
             <h2 className="title-gradient mb-12 text-center">About Me</h2>
             <div className="prose dark:prose-invert mx-auto">
               <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed text-center mb-12">
-                Hi, I&apos;m Tom! I&apos;m a passionate Full Stack Developer with expertise in web development, 
-                system programming, and software architecture.
+                Hi, I&apos;m Tom! I&apos;m a 3rd year Epitech student and passionate Full Stack Developer. 
+                I&apos;ve gained professional experience through an internship at RCDevs in Luxembourg, 
+                working with PHP Symfony, and volunteering at E-MMA.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div className="glass-card p-6 rounded-xl card-hover h-full">
                   <h3 className="text-xl font-semibold mb-4 gradient-text">Skills</h3>
                   <ul className="space-y-3 text-gray-600 dark:text-gray-400">
-                    <li>• C/C++ Programming</li>
+                    <li>• C/C++ Development</li>
                     <li>• Python Development</li>
-                    <li>• Web Development</li>
-                    <li>• Git Version Control</li>
+                    <li>• React & React Native</li>
+                    <li>• Next.js</li>
+                    <li>• Tailwind CSS</li>
+                    <li>• TypeScript</li>
+                    <li>• Node.js</li>
+                    <li>• PHP & Symfony</li>
+                    <li>• AI Development</li>
+                    <li>• Git & GitHub</li>
+                    <li>• VSCode</li>
                   </ul>
                 </div>
                 
                 <div className="glass-card p-6 rounded-xl card-hover h-full">
                   <h3 className="text-xl font-semibold mb-4 gradient-text">Experience</h3>
                   <ul className="space-y-3 text-gray-600 dark:text-gray-400">
-                    <li>• Epitech Student</li>
+                    <li>• 3rd Year Epitech Student</li>
+                    <li>• Internship at RCDevs (Luxembourg)
+                      <ul className="ml-6 mt-2 space-y-2">
+                        <li>- PHP Symfony Development</li>
+                        <li>- Account Management System</li>
+                        <li>- Authentication & Authorization</li>
+                      </ul>
+                    </li>
+                    <li>• Volunteer at E-MMA</li>
                     <li>• Personal Projects</li>
                     <li>• Team Collaboration</li>
                   </ul>
