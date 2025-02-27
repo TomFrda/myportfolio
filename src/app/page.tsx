@@ -1,3 +1,5 @@
+'use client'
+
 import { EmailIcon } from '../components/icons/email-icon'
 import { LinkedInIcon } from '../components/icons/linkedin-icon'
 import { GitHubIcon } from '../components/icons/github-icon'
@@ -6,18 +8,22 @@ import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 import Stars from '@/components/stars'
 import Image from 'next/image'
+import { useContext } from 'react'
+import { LanguageContext } from '@/context/LanguageContext'
 
 const projects = [
   {
     title: "Maya",
-    description: "A full-stack application with web and mobile interfaces featuring a JavaScript backend",
+    description_en: "A full-stack application with web and mobile interfaces featuring a JavaScript backend",
+    description_fr: "Une application full-stack avec interfaces web et mobile utilisant un backend JavaScript",
     tags: ["React", "TypeScript", "Tailwind CSS", "Flutter", "Node.js"],
     github: "https://github.com/TomFrda/MAYA/",
     image: "/myportfolio/projects/maya.png"
   },
   {
     title: "AI Soirée",
-    description: "A surreal party simulator using GPT-4 and local AI to recreate absurd 3 AM student conversations",
+    description_en: "A surreal party simulator using GPT-4 and local AI to recreate absurd 3 AM student conversations",
+    description_fr: "Un simulateur de soirée surréaliste utilisant GPT-4 et l'IA locale pour recréer des conversations absurdes d'étudiants à 3h du matin",
     tags: ["Python", "OpenAI API", "GPT-4", "CLI"],
     github: "https://github.com/TomFrda/IASoiree/",
     image: "/myportfolio/projects/aisoiree.png"
@@ -25,6 +31,8 @@ const projects = [
 ];
 
 export default function Home() {
+  const { language, t } = useContext(LanguageContext)
+  
   return (
     <>
       <Stars />
@@ -56,63 +64,81 @@ export default function Home() {
                 rel="noopener noreferrer"
               >
                 <GitHubIcon size={20} />
-                <span>Follow on GitHub</span>
+                <span>{t.followOnGitHub}</span>
               </a>
               <a 
                 href="#contact" 
                 className="flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-foreground hover:bg-foreground hover:text-background transition-all duration-300"
               >
-                Contact Me
+                {t.contactMe}
               </a>
             </div>
           </div>
         </FadeIn>
 
-        {/* About Section */}
+        {/* About Section - Professional */}
         <FadeIn>
           <section id="about" className="mt-20 sm:mt-32 w-full max-w-4xl">
-            <h2 className="title-gradient mb-12 text-center">About Me</h2>
+            <h2 className="title-gradient mb-12 text-center">{t.professionalTitle}</h2>
             <div className="prose dark:prose-invert mx-auto">
               <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed text-center mb-12">
-                Hi, I&apos;m Tom! I&apos;m a 3rd year Epitech student and passionate Full Stack Developer. 
-                I&apos;ve gained professional experience through an internship at RCDevs in Luxembourg, 
-                working with PHP Symfony, and volunteering at E-MMA.
+                {t.professionalIntro}
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div className="glass-card p-6 rounded-xl card-hover h-full">
-                  <h3 className="text-xl font-semibold mb-4 gradient-text">Skills</h3>
+                  <h3 className="text-xl font-semibold mb-4 gradient-text">{t.skills}</h3>
                   <ul className="space-y-3 text-gray-600 dark:text-gray-400">
                     <li>• C/C++ Development</li>
                     <li>• Python Development</li>
                     <li>• React & React Native</li>
                     <li>• Next.js</li>
-                    <li>• Tailwind CSS</li>
-                    <li>• TypeScript</li>
-                    <li>• Node.js</li>
                     <li>• PHP & Symfony</li>
+                    <li>• Node.js</li>
                     <li>• AI Development</li>
                     <li>• Git & GitHub</li>
-                    <li>• VSCode</li>
                   </ul>
                 </div>
                 
                 <div className="glass-card p-6 rounded-xl card-hover h-full">
-                  <h3 className="text-xl font-semibold mb-4 gradient-text">Experience</h3>
+                  <h3 className="text-xl font-semibold mb-4 gradient-text">{t.experience}</h3>
                   <ul className="space-y-3 text-gray-600 dark:text-gray-400">
-                    <li>• 3rd Year Epitech Student</li>
-                    <li>• Internship at RCDevs (Luxembourg)
+                    <li>• {language === 'fr' ? '3ème Année Epitech' : '3rd Year Epitech Student'}</li>
+                    <li>• {language === 'fr' ? 'Stage chez RCDevs (Luxembourg)' : 'Internship at RCDevs (Luxembourg)'}
                       <ul className="ml-6 mt-2 space-y-2">
                         <li>- PHP Symfony Development</li>
-                        <li>- Account Management System</li>
-                        <li>- Authentication & Authorization</li>
+                        <li>- {language === 'fr' ? 'Système de Gestion de Comptes' : 'Account Management System'}</li>
+                        <li>- {language === 'fr' ? 'Authentification & Autorisation' : 'Authentication & Authorization'}</li>
                       </ul>
                     </li>
-                    <li>• Volunteer at E-MMA</li>
-                    <li>• Personal Projects</li>
-                    <li>• Team Collaboration</li>
+                    <li>• {language === 'fr' ? 'Bénévole chez E-MMA' : 'Volunteer at E-MMA'}</li>
+                    <li>• {language === 'fr' ? 'Projets Personnels' : 'Personal Projects'}</li>
+                    <li>• {language === 'fr' ? 'Collaboration en Équipe' : 'Team Collaboration'}</li>
                   </ul>
                 </div>
+              </div>
+            </div>
+          </section>
+        </FadeIn>
+
+        {/* Personal Section */}
+        <FadeIn>
+          <section id="personal" className="mt-20 sm:mt-32 w-full max-w-4xl">
+            <h2 className="title-gradient mb-12 text-center">{t.aboutMeTitle}</h2>
+            <div className="prose dark:prose-invert mx-auto">
+              <div className="glass-card p-6 rounded-xl card-hover">
+                <p className="text-gray-600 dark:text-gray-400 mb-6">
+                  {t.aboutMeText}
+                </p>
+                
+                <h3 className="text-xl font-semibold mb-4 gradient-text">{t.passions}</h3>
+                <ul className="space-y-3 text-gray-600 dark:text-gray-400">
+                  <li>• {language === 'fr' ? 'Intelligence Artificielle & Machine Learning' : 'Artificial Intelligence & Machine Learning'}</li>
+                  <li>• {language === 'fr' ? 'Développement Open Source' : 'Open Source Development'}</li>
+                  <li>• {language === 'fr' ? 'Technologies Web & Mobile' : 'Web & Mobile Technologies'}</li>
+                  <li>• {language === 'fr' ? 'Résolution de Problèmes & Conception d\'Algorithmes' : 'Problem Solving & Algorithm Design'}</li>
+                  <li>• {language === 'fr' ? 'Apprentissage Continu & Innovation Technologique' : 'Continuous Learning & Tech Innovation'}</li>
+                </ul>
               </div>
             </div>
           </section>
@@ -121,12 +147,14 @@ export default function Home() {
         {/* Projects Section */}
         <FadeIn>
           <section id="projects" className="mt-20 sm:mt-32 w-full">
-            <h2 className="title-gradient mb-12 text-center">Featured Projects</h2>
+            <h2 className="title-gradient mb-12 text-center">{t.projectsTitle}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {projects.map((project, i) => (
                 <div key={i} className="glass-card p-6 rounded-xl hover-glow">
                   <h3 className="text-xl font-semibold mb-4">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                    {language === 'fr' ? project.description_fr : project.description_en}
+                  </p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, j) => (
                       <span key={j} className="px-2 py-1 text-sm rounded-full bg-gray-100 dark:bg-gray-800">
@@ -141,7 +169,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                   >
                     <GitHubIcon size={16} />
-                    View on GitHub
+                    {t.viewOnGithub}
                   </a>
                 </div>
               ))}
@@ -152,7 +180,7 @@ export default function Home() {
         {/* Contact Section */}
         <FadeIn>
           <section id="contact" className="mt-20 sm:mt-32 w-full max-w-2xl mx-auto mb-16">
-            <h2 className="title-gradient mb-12 text-center">Contact Me</h2>
+            <h2 className="title-gradient mb-12 text-center">{t.contactTitle}</h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <a
@@ -163,7 +191,7 @@ export default function Home() {
                   <EmailIcon size={24} className="text-blue-500" />
                 </div>
                 <div>
-                  <h3 className="font-semibold">Email</h3>
+                  <h3 className="font-semibold">{t.email}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400">tom.freida@epitech.eu</p>
                 </div>
               </a>
@@ -179,7 +207,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="font-semibold">LinkedIn</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Connect with me</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{t.connect}</p>
                 </div>
               </a>
             </div>
