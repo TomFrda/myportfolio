@@ -30,6 +30,17 @@ const projects = [
   },
 ];
 
+const websites = [
+  {
+    title: "Restaurant Website",
+    description_en: "A responsive restaurant website with a modern design and smooth animations",
+    description_fr: "Un site web de restaurant responsive avec un design moderne et des animations fluides",
+    tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    link: "https://tomfrda.github.io/restaurant/",
+    image: "/myportfolio/projects/restaurant.png"
+  },
+];
+
 export default function Home() {
   const { language, t } = useContext(LanguageContext)
   
@@ -140,6 +151,43 @@ export default function Home() {
                   <li>• {language === 'fr' ? 'Apprentissage Continu & Innovation Technologique' : 'Continuous Learning & Tech Innovation'}</li>
                 </ul>
               </div>
+            </div>
+          </section>
+        </FadeIn>
+
+        {/* Websites Section */}
+        <FadeIn>
+          <section id="websites" className="mt-20 sm:mt-32 w-full">
+            <h2 className="title-gradient mb-12 text-center">{t.websites}</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {websites.map((website, i) => (
+                <div key={i} className="glass-card p-6 rounded-xl hover-glow">
+                  <h3 className="text-xl font-semibold mb-4">{website.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                    {language === 'fr' ? website.description_fr : website.description_en}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {website.tags.map((tag, j) => (
+                      <span key={j} className="px-2 py-1 text-sm rounded-full bg-gray-100 dark:bg-gray-800">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <a 
+                    href={website.link}
+                    className="flex items-center gap-2 text-sm hover:text-blue-500"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    Visit Website
+                  </a>
+                </div>
+              ))}
             </div>
           </section>
         </FadeIn>

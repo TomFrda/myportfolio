@@ -50,6 +50,7 @@ export default function Navbar() {
             {[
               { key: 'about', translationKey: 'professionalProfile' },
               { key: 'personal', translationKey: 'aboutMe' },
+              { key: 'websites', translationKey: 'websites' },
               { key: 'projects', translationKey: 'projects' },
               { key: 'contact', translationKey: 'contact' }
             ].map((item) => (
@@ -101,6 +102,7 @@ export default function Navbar() {
             {[
               { key: 'about', translationKey: 'professionalProfile' },
               { key: 'personal', translationKey: 'aboutMe' },
+              { key: 'websites', translationKey: 'websites' },
               { key: 'projects', translationKey: 'projects' },
               { key: 'contact', translationKey: 'contact' }
             ].map((item) => (

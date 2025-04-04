@@ -29,6 +29,8 @@ export const translations = {
     // Projects section
     projectsTitle: "Featured Projects",
     viewOnGithub: "View on GitHub",
+    websites: "Websites",
+    restaurantDescription: "A responsive restaurant website with a modern design and smooth animations",
     
     // Contact section
     contactTitle: "Contact Me",
@@ -63,6 +65,8 @@ export const translations = {
     // Projects section
     projectsTitle: "Projets en Vedette",
     viewOnGithub: "Voir sur GitHub",
+    websites: "Sites Web",
+    restaurantDescription: "Un site web de restaurant responsive avec un design moderne et des animations fluides",
     
     // Contact section
     contactTitle: "Me Contacter",
